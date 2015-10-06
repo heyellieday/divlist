@@ -1,0 +1,142 @@
+header#header-main{
+
+	position:fixed;
+  top:0;
+  width:100%;
+  z-index:100;
+  background-color: rgba(255,255,255,0.95);
+   -webkit-box-shadow: 0px 0px 20px 0px $brand-alternate;
+     -moz-box-shadow: 0px 0px 20px 0px $brand-alternate;
+          box-shadow: 0px 0px 20px 0px $brand-alternate;
+	.navbar-main{
+
+		border-top: 5px $brand-main solid;
+		border-bottom: 1px $brand-alternate solid;
+		height: 65px;
+		margin-bottom: 0px;
+
+		.navbar-container{
+		}
+		.navbar-brand{
+			padding-top: 10px;
+			#brand-logo-icon{
+				height: 40px;
+			}
+			#brand-logo-text{
+				margin-top: -5px;
+				margin-left: 5px;
+				height:22px;
+			}
+		}
+		.navbar-content{
+			a{	
+				color: $brand-main;
+			}
+			li{
+					> a{
+					  padding-top: 20px;
+					  padding-bottom: 20px;
+					}
+					> a:hover{
+						background-color: $brand-light;
+					}
+				}
+				li .active{
+					border-bottom: 3px $brand-main solid;
+					padding-bottom: 11px;
+				}
+				.btn-join{
+					border: 1px $brand-main solid;
+					margin-top: 15px;
+					margin-bottom: 15px;
+					margin-left: 15px;
+					padding-top: 5px;
+					padding-bottom: 5px;
+				}
+		}
+	}
+	.navbar-page{
+		border-bottom: 1px $brand-alternate solid;
+		height: 40px;
+		margin-bottom: 0px;
+		.navbar-container{
+			margin-top: 5px;
+		}
+		.navbar-header{
+
+		}
+		.navbar-brand{
+			padding-top: 7.5px;
+			padding-bottom:10px;
+			color: $brand-main;
+			font-weight: bold;
+			#brand-logo-icon{
+				height: 40px;
+			}
+			#brand-logo-text{
+				margin-top: -5px;
+				margin-left: 5px;
+				height:22px;
+			}
+		}
+		
+		.navbar-content{
+
+			.navbar-nav{
+
+				min-height: 50px;
+				margin-top: -6px;
+  			a{
+				color: $brand-main;
+				text-transform: uppercase;
+				}
+				li{
+
+					> a{
+					  padding-top: 15px;
+					  padding-bottom: 15px;
+					}
+					> a:hover{
+						background-color: $brand-light;
+					}
+				}
+				li .active{
+					border-bottom: 3px $brand-main solid;
+					padding-bottom: 11px;
+				}
+			}
+			.navbar-right{
+				margin-right: 0px;
+				a{
+					text-transform: none;
+				}
+				a.start-community{
+						font-style: italic;
+					}
+			}
+		}
+	}
+	@media (max-width: 767px){
+		.navbar-page{
+			.navbar-header{
+				display: inline-block;
+	  		width: 10%
+			}
+			
+			.navbar-content{
+				width: 90%;
+				display: inline-block;
+				float: right;
+				.navbar-nav{
+					display: table;
+					li{
+
+						display: table-cell;
+	  				width: 1%;
+	  				text-align: right;
+					}
+				}
+			}
+		}
+	}
+}
