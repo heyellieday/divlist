@@ -3,6 +3,6 @@
 <article class="post-excerpt">
 			<div class="excerpt-content-container">
 				<iframe class=
-				"excerpt-content" src="{{renderSrc('\/\/cdn.iframe.ly/api/iframe?url=' + <%=@post.source %> + '&key=<%= ENV['iframely_key'] %>&amp;summary=true')}}" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" style="width:100%; height:100%;"></iframe>
+				"excerpt-content" src="//cdn.iframe.ly/api/iframe?url=<%=@post.source %>&key=<%= ENV['iframely_key']%>&amp;summary=true'" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" style="width:100%; height:100%;"></iframe>
 			</div>
 </article>

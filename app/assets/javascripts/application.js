@@ -17,7 +17,6 @@
 //= require medium-editor
 //= require moment
 //= require handlebars/handlebars.runtime.min
-//= require jquery-sortable/source/js/jquery-sortable-min
 //= require blueimp-file-upload/js/vendor/jquery.ui.widget
 //= require blueimp-file-upload/js/jquery.iframe-transport
 //= require blueimp-file-upload/js/jquery.fileupload
