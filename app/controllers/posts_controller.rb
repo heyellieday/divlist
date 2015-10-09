@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+	before_action :authenticate_user!, only: [:new, :create]
   def index
 
   	@posts = Post.paginate(page: params[:page], per_page: 5).order('created_at DESC')
