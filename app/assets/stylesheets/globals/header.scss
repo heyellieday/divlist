@@ -5,12 +5,10 @@ header#header-main{
   width:100%;
   z-index:100;
   background-color: rgba(255,255,255,0.95);
-   -webkit-box-shadow: 0px 0px 20px 0px $brand-alternate;
-     -moz-box-shadow: 0px 0px 20px 0px $brand-alternate;
-          box-shadow: 0px 0px 20px 0px $brand-alternate;
+   -webkit-box-shadow: 0px 0px 20px $brand-light;
+     -moz-box-shadow: 0px 0px 20px $brand-light;
+          box-shadow: 0px 0px 20px $brand-light;
 	.navbar-main{
-
-		border-top: 5px $brand-main solid;
 		border-bottom: 1px $brand-alternate solid;
 		height: 65px;
 		margin-bottom: 0px;

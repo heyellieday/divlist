@@ -1,0 +1,9 @@
+<%= render "posts/new_nav" %>
+
+<%= simple_form_for @post, url: resources_path do |f| %>
+	<%= f.input :title %>
+	<%= f.input :source, label: "Link", as: :string %>
+	<%= f.input :content, label: "Description" %>
+
+  <%= f.button :submit, "Submit Resource" %>
+<% end %>

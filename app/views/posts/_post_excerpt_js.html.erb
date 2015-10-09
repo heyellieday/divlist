@@ -1,0 +1,15 @@
+<article class="post-excerpt">
+			<div class="excerpt-content-container">
+				<iframe class=
+				"excerpt-content" ng-src="{{renderSrc('\/\/cdn.iframe.ly/api/iframe?url=' + post.source + '&key=<%= ENV['iframely_key'] %>&amp;summary=true')}}" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" style="width:100%; height:100%;"></iframe>
+			</div>
+			<div class="post-info">
+				<div class="btn upvotes" data-id="{{post.id}}">
+					<span class="upvote-arrow"><i class="fa fa-arrow-up"></i></span>
+					<span class="count" data-id="{{post.id}}" >1509</span>
+				</div>
+				<% if current_user.present? %>
+					<span class="btn favorite" data-id="{{post.id}}"><i class="fa fa-heart-o fa-2x"></i></span>
+				<% end %>
+			</div>
+</article>

@@ -1,0 +1,27 @@
+<% title "All" %>
+
+<% content_for :page_nav_content do %>
+	<div class="navbar-content">
+	  <ul class="nav navbar-nav">
+	    <li>
+	      <a class="active" href="#">Popular</a>
+	    </li>
+	    <li>
+	      <a href="#">Latest</a>
+	    </li>
+	    <li>
+	      <a href="#">Trending</a>
+	    </li>
+	  </ul>
+	  <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
+	  	<li>
+	  		<a href="#" class="start-community">
+	  		Share a resource
+	  		</a>
+	  	</li>
+	    <li>
+	    	<% #link_for "Join" %>
+	    </li>
+	  </ul>
+	</div>
+<% end %>

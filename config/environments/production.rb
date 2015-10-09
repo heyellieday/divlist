@@ -35,6 +35,25 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
 
+  if ENV['force_ssl'] == 'true'
+    config.force_ssl = true
+  else
+    config.force_ssl = false
+  end
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {:host => ENV['default_mailer_url']}
+  config.action_mailer.perform_deliveries = true  
+  config.action_mailer.raise_delivery_errors = true  
+  config.action_mailer.smtp_settings = {  
+       :authentication => :plain,
+       :address => "smtp.mailgun.org",
+       :port => 587,
+       :domain => ENV["mailgun_domain"],
+       :user_name => ENV["mailgun_username"],
+       :password => ENV["mailgun_password"]
+  }
+
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.

@@ -46,6 +46,9 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
+gem 'twitter'
+gem 'twitter-text'
+
 #Use Bootstrap for styles
 gem 'bootstrap-sass', '~> 3.0.3.0'
 
@@ -81,6 +84,8 @@ group :development, :test do
 
   # Use rspec for testing
   gem 'rspec-rails'
+
+  gem "letter_opener"
 
   # Use sqlite3 for test db
   gem 'sqlite3'
