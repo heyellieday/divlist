@@ -5,22 +5,25 @@ header#header-main{
   width:100%;
   z-index:100;
   background-color: rgba(255,255,255,0.95);
-   -webkit-box-shadow: 0px 0px 20px $brand-light;
-     -moz-box-shadow: 0px 0px 20px $brand-light;
-          box-shadow: 0px 0px 20px $brand-light;
+  		   -webkit-box-shadow: 0px 0px 10px $brand-light;
+     -moz-box-shadow: 0px 0px 10px $brand-light;
+          box-shadow: 0px 0px 10px $brand-light;
 	.navbar-main{
-		border-bottom: 1px $brand-alternate solid;
+		border: 0px $brand-alternate solid;
 		height: 65px;
 		margin-bottom: 0px;
+		border-bottom: 1px $brand-alternate solid;
 
 		.navbar-container{
 		}
 		.navbar-brand{
-			padding-top: 10px;
+			padding-top: 14px;
 			#brand-logo-icon{
+				margin-top: -5px;
 				height: 40px;
 			}
 			#brand-logo-text{
+				color: white;
 				margin-top: -5px;
 				margin-left: 5px;
 				height:22px;
@@ -28,15 +31,16 @@ header#header-main{
 		}
 		.navbar-content{
 			a{	
-				color: $brand-main;
+				color: white;
 			}
 			li{
 					> a{
-					  padding-top: 20px;
-					  padding-bottom: 20px;
+					  padding-top: 22px;
+					  padding-bottom: 23px;
 					}
 					> a:hover{
-						background-color: $brand-light;
+						background-color: white;
+						color: $brand-main;
 					}
 				}
 				li .active{
@@ -54,7 +58,9 @@ header#header-main{
 		}
 	}
 	.navbar-page{
-		border-bottom: 1px $brand-alternate solid;
+		border-bottom: 0px $brand-alternate solid;
+		border-radius: 0px;
+		background-color: white;
 		height: 40px;
 		margin-bottom: 0px;
 		.navbar-container{
@@ -66,7 +72,6 @@ header#header-main{
 		.navbar-brand{
 			padding-top: 7.5px;
 			padding-bottom:10px;
-			color: $brand-main;
 			font-weight: bold;
 			#brand-logo-icon{
 				height: 40px;
@@ -86,7 +91,7 @@ header#header-main{
 				margin-top: -6px;
   			a{
 				color: $brand-main;
-				text-transform: uppercase;
+				// text-transform: uppercase;
 				}
 				li{
 
@@ -137,4 +142,14 @@ header#header-main{
 			}
 		}
 	}
+}
+
+.gradient{
+background: -moz-linear-gradient(0deg, rgba(222,4,86,1) 0%, rgba(123,0,128,1) 100%); /* ff3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(222,4,86,1)), color-stop(100%, rgba(123,0,128,1))); /* safari4+,chrome */
+background: -webkit-linear-gradient(0deg, rgba(222,4,86,1) 0%, rgba(123,0,128,1) 100%); /* safari5.1+,chrome10+ */
+background: -o-linear-gradient(0deg, rgba(222,4,86,1) 0%, rgba(123,0,128,1) 100%); /* opera 11.10+ */
+background: -ms-linear-gradient(0deg, rgba(222,4,86,1) 0%, rgba(123,0,128,1) 100%); /* ie10+ */
+background: linear-gradient(90deg, rgba(222,4,86,1) 0%, rgba(123,0,128,1) 100%); /* w3c */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#de0456', endColorstr='#7B0080',GradientType=1 ); /* ie6-9 */
 }
