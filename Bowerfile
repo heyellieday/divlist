@@ -5,6 +5,4 @@
 asset 'angular'
 asset 'ngInfiniteScroll'
 asset 'moment'
-asset 'medium-editor', "4.1.1"
-asset 'medium-editor-insert-plugin'
 asset 'Autolinker.js'
