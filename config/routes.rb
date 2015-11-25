@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :posts, as: :posts, path: "posts"
 
   devise_for :users
+
+  get "about" => "pages#about", as: :about
   root 'posts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

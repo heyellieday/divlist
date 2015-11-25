@@ -1,3 +1,7 @@
+.posts-container{
+	margin-top: 25px;
+}
+
 @mixin aspect-ratio($width, $height) {
   position: relative;
   &:before {

@@ -75,6 +75,13 @@ gem 'will_paginate', '~> 3.0.6'
 # Use Meta Tags for easy meta tags
 gem 'meta-tags'
 
+gem 'rest-client'
+
+gem 'awesome_print'
+
+gem 'twitter'
+gem 'tweetstream'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

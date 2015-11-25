@@ -1,0 +1,42 @@
+.page-hero{
+	height:400px;
+	width: 100%;
+	top: 115px;
+	left: 0px;
+	background-color: pink;
+	position: absolute;
+	  text-align: center;
+	  color: #fff;
+	background: linear-gradient(rgba($brand-main,0.45) 60%, rgba(#f5f8fa,1) 100%) !important;
+	.content{
+		max-width: 960px;
+		padding: 50px;
+		padding-top: 160px;
+		margin: 0 auto;
+		text-align: center;
+		font-size: 22px;
+	}
+}
+.page-hero:before{
+	position: absolute;
+	  top: 0;
+	  bottom: 0;
+	  left: 0;
+	  right: 0;
+	  // width: 100%;
+	  content: "";
+	  z-index: -1;  /* to be below the parent element */
+	background: image-url('about.jpg') no-repeat center center;
+	  -webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.tall{
+	height: 450px;
+}
+
+.light{
+	background: linear-gradient(rgba($brand-light,0.45) 60%, rgba(#f5f8fa,1) 100%) !important;
+}

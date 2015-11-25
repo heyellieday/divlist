@@ -16,8 +16,8 @@
 					<%= image_tag("profile_photo.png", class: "img-circle profile_photo") %>
 					</div>
 					<div class="col-md-10 col-sm-9 content">
-						<div><a href="#">Ellie Day</a> shared:</div>
-						<div class="message">Talking about Ruby / Rails, I got back to learning recently and I must say Ruby is an incredibly readable and approachable language.</div>
+						<div><a href="#">Ellie Day</a></div>
+						<div class="message" ng-bind-html="autoLinkContent(post.content)"></div>
 					</div>
 				</div>
 				<a class="source-link" href="#">View on Twitter</a>				

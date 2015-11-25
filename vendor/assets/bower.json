@@ -5,6 +5,7 @@
     "ngInfiniteScroll": "latest",
     "moment": "latest",
     "medium-editor": "4.1.1",
-    "medium-editor-insert-plugin": "latest"
+    "medium-editor-insert-plugin": "latest",
+    "Autolinker.js": "latest"
   }
 }

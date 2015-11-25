@@ -11,13 +11,14 @@
         <span>
          <%= image_tag "DivList2.png", id: "brand-logo-icon" %>
 <!--          <%= image_tag "logo-text.png", id: "brand-logo-text" %> -->
-        <span id="brand-logo-text">DivList</span>
+        <span id="brand-logo-text">DivList <span class="tagline">Hire and retain LGBTQ talent</span></span>
         </span>
       </a>
     </div>
     <div class="collapse navbar-collapse navbar-content" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-          <li class="active"><a href="#">About</a></li>
+          <li class="active"><a href="<%= about_path %>">About</a></li>
+           <li class="active"><a href="#">For Companies</a></li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">

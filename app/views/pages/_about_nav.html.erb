@@ -1,0 +1,25 @@
+<% content_for :page_nav_content do %>
+	<div class="navbar-content">
+	  <ul class="nav navbar-nav">
+	  	 <li>
+	      <a class="active" href="#">Features</a>
+	    </li>
+	    <li>
+	      <a href="#">Mission</a>
+	    </li>
+	    <li>
+	      <a href="#">Team</a>
+	    </li>
+	  </ul>
+	  <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
+	  	<li>
+	  		<a href="<%= new_resource_path %>" class="start-community">
+	  		Contact
+	  		</a>
+	  	</li>
+	    <li>
+	    	<% #link_for "Join" %>
+	    </li>
+	  </ul>
+	</div>
+<% end %>

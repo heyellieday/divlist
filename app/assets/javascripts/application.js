@@ -21,5 +21,6 @@
 //= require blueimp-file-upload/js/jquery.iframe-transport
 //= require blueimp-file-upload/js/jquery.fileupload
 //= require medium-editor-insert-plugin/dist/js/medium-editor-insert-plugin.min
+//= require Autolinker.js/dist/Autolinker.min
 //= require main
 //= require posts

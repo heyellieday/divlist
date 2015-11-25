@@ -1,3 +1,5 @@
+var autolinker = new Autolinker();
+
 var app = angular.module('app', [ 'infinite-scroll']);
 
 app.run(['$rootScope', '$sce', function($rootScope, $sce){
@@ -10,6 +12,10 @@ app.run(['$rootScope', '$sce', function($rootScope, $sce){
   $rootScope.renderSrc = function(url){
     console.log(url);
     return $sce.trustAsResourceUrl(url);
+  }
+  $rootScope.autoLinkContent = function(content){
+    var linkedText = autolinker.link(content);
+    return $sce.trustAsHtml(linkedText);
   }
 
 }]);
