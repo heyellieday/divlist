@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 			respond_to do |format|
 			  format.html
 			  format.json{
-			  	render json: @posts
+			  	render json: @posts.as_json(:include => [ :tweet => {:include => :twitter_profile}])
 			  }
 			end
 		end

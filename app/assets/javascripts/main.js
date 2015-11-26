@@ -1,4 +1,4 @@
-var autolinker = new Autolinker();
+var autolinker = new Autolinker({hashtag: "twitter", newWindow: true});
 
 var app = angular.module('app', [ 'infinite-scroll']);
 

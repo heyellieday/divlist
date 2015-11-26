@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009174240) do
+ActiveRecord::Schema.define(version: 20151125221610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,34 @@ ActiveRecord::Schema.define(version: 20151009174240) do
   add_index "posts", ["belongable_type", "belongable_id"], name: "index_posts_on_belongable_type_and_belongable_id", using: :btree
   add_index "posts", ["ownable_type", "ownable_id"], name: "index_posts_on_ownable_type_and_ownable_id", using: :btree
   add_index "posts", ["slug"], name: "index_posts_on_slug", using: :btree
+
+  create_table "tweets", force: :cascade do |t|
+    t.text     "text"
+    t.integer  "twitter_profile_id"
+    t.text     "url"
+    t.integer  "post_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "twitter_id"
+  end
+
+  add_index "tweets", ["post_id"], name: "index_tweets_on_post_id", using: :btree
+  add_index "tweets", ["twitter_profile_id"], name: "index_tweets_on_twitter_profile_id", using: :btree
+
+  create_table "twitter_profiles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "twitter_id"
+    t.string   "screen_name"
+    t.string   "description"
+    t.string   "location"
+    t.text     "profile_image_url"
+    t.text     "profile_image_url_https"
+    t.integer  "user_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "twitter_profiles", ["user_id"], name: "index_twitter_profiles_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -71,4 +99,7 @@ ActiveRecord::Schema.define(version: 20151009174240) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
+  add_foreign_key "tweets", "posts"
+  add_foreign_key "tweets", "twitter_profiles"
+  add_foreign_key "twitter_profiles", "users"
 end

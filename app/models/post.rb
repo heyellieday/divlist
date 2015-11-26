@@ -4,6 +4,6 @@ class Post < ActiveRecord::Base
 
 	  belongs_to :ownable, polymorphic: true
 		belongs_to :belongable, polymorphic: true
-	  has_many :favorites
-	  has_many :upvotes
+	  has_one :tweet
+	  has_one :twitter_profile, through: :tweet
 end
