@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 # Use pg as the database for Active Record
 gem 'pg'
+
+gem 'redis'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -55,6 +57,8 @@ gem 'bootstrap-sass', '~> 3.0.3.0'
 # Use Puma for web server
 gem 'puma'
 
+gem 'sidekiq'
+
 # Use Figaro for Environment variables.
 gem 'figaro'
 
@@ -81,6 +85,7 @@ gem 'awesome_print'
 
 gem 'twitter'
 gem 'tweetstream'
+gem 'aasm'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,0 +1,27 @@
+<article class="post-excerpt">
+	<div class="excerpt-content-container">
+		<div class="row">
+			<div class="col-sm-1">
+			<div class="post-info">
+				<div class="btn upvotes" data-id="{{post.id}}">
+					<a ng-click="approve(post.id, $index)"><span class="count">&#10004;</span></a>
+				</div>
+				<%# if current_user.present? %>
+					<!-- <span class="btn favorite" data-id="{{post.id}}"><i class="fa fa-heart-o fa-2x"></i></span> -->
+				<%# end %>
+			</div>
+			</div>
+			<div class="col-sm-2 col-md-1">
+			<a href="https://www.twitter.com/{{post.tweet.twitter_profile.screen_name}}">
+			<img class="img-circle profile_photo" src="{{post.tweet.twitter_profile.profile_image_url}}">
+			</a>
+			</div>
+			<div class="col-md-10 col-sm-9 content">
+				<div><a target="_blank" href="https://www.twitter.com/{{post.tweet.twitter_profile.screen_name}}">{{post.tweet.twitter_profile.name}}</a></div>
+				<div class="message" ng-bind-html="autoLinkContent(post.tweet.text)"></div>
+			</div>
+		</div>
+		<a class="source-link" target="_blank" href="{{post.tweet.url}}">View on Twitter</a>				
+	</div>
+	<div class="gradient bottom-bar"></div>
+</article>

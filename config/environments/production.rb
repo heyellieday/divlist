@@ -41,6 +41,8 @@ Rails.application.configure do
     config.force_ssl = false
   end
 
+  config.app_domain = "divlist.com"
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = {:host => ENV['default_mailer_url']}
   config.action_mailer.perform_deliveries = true  

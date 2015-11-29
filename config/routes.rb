@@ -1,12 +1,27 @@
 Rails.application.routes.draw do
-  resources :posts, as: :resources, path: "resources"
-  resources :posts, as: :posts, path: "posts"
 
-  devise_for :users
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
   get "about" => "pages#about", as: :about
   root 'posts#index'
 
+  resources :upvotes, only: [:create]
+
+  post 'upvotes/remove' => "upvotes#remove"
+
+
+  scope '/dashboard', as: :dashboard do
+    authenticate :user do
+      get 'posts', to: 'posts#overview', as: :posts
+      scope 'posts', as: :posts do
+        get 'pending', to: "posts#pending", as: :pending
+        post 'approve', to: "posts#approve", as: :approve
+      end
+    end
+  end
+
+  resources :posts, as: :posts, path: "posts"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

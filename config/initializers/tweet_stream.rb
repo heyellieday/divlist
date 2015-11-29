@@ -7,3 +7,5 @@ TweetStream.configure do |config|
   config.oauth_token_secret = ENV["twitter_oauth_token_secret"]
   config.auth_method        = :oauth
 end
+
+TweetStreamWorker.perform_async

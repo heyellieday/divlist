@@ -19,6 +19,21 @@ app.run(['$rootScope', '$sce', function($rootScope, $sce){
   }
 
 }]);
+
+app.run(function(){
+  Array.prototype.remove = function(from, to) {
+    var rest = this.slice((to || from) + 1 || this.length);
+    this.length = from < 0 ? this.length + from : from;
+    return this.push.apply(this, rest);
+  };
+});
+
+app.config(['$httpProvider', function($httpProvider) {
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+
+
+}]);
+
 app.filter('cut', [function () {
         return function (value, wordwise, max, tail) {
             if (!value) return '';
@@ -42,6 +57,31 @@ app.filter('unsafe',['$sce', function($sce) {
     return function(val) {
         return $sce.trustAsHtml(val);
     };
+}]);
+
+app.factory('PendingPosts',['$http', '$location', function($http, $location) {
+  var Posts = function(scope) {
+    this.posts = [];
+    this.busy = false;
+    this.after = 1;
+  };
+
+  Posts.prototype.nextPage = function() {
+    if (this.busy) return;
+    this.busy = true;
+    var url = "";
+
+    url = '/dashboard/posts/pending?format=json&page='+this.after;
+    $http.get(url).success(function(data) {
+      var posts = data;
+      for (var i = 0; i < posts.length; i++) {
+        this.posts.push(posts[i]);
+      }
+      this.after++;
+      this.busy = false;
+    }.bind(this));
+  };
+  return Posts;
 }]);
 
 app.factory('Posts',['$http', '$location', function($http, $location) {

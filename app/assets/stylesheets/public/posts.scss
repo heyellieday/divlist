@@ -51,6 +51,7 @@
     			color:$brand-alternate;
     			font-weight: bold;
     			font-size: 18px;
+                padding-left: 15px;
     			.favorite:hover{
     				color: darken( $brand-alternate, 30% );
     			}

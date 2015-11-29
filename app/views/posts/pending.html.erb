@@ -1,0 +1,13 @@
+<%= render "posts/pending_nav" %>
+<section ng-controller="PendingPostsCtrl">
+<div class="page-hero tall light">
+	<div class="content">
+		
+	</div>
+</div>
+  <div infinite-scroll="posts.nextPage()" infinite-scroll-disabled='posts.busy' infinite-scroll-distance='1' class="posts-container">
+  	<div ng-repeat="post in posts.posts" ng-init="$last ? registerPostEvents() : null" >
+  		<%= render 'posts/pending_post_js' %>
+	  </div>
+	</div>
+</section>

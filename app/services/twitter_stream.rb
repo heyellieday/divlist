@@ -11,7 +11,7 @@ class TwitterStream
 		  puts message
 		end.track(keyword) do |status|
 
-			if status.is_a?(Twitter::Tweet) && status.text[0..1].exclude?("RT")
+			if status.is_a?(Twitter::Tweet) && status.text[0..1].exclude?("RT") && Tweet.find_by(twitter_id: status[:id]).nil?
 				profile = TwitterProfile.find_or_create_by(twitter_id: status.user[:id].to_s)
 				profile.update(name: status.user[:name], screen_name: status.user[:screen_name], description: status.user[:description], profile_image_url_https: status.user[:profile_image_url_https],  profile_image_url: status.user[:profile_image_url], location: status.user[:location])
 				post = Post.create()

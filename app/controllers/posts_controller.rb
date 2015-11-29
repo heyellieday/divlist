@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
   def index
 
-  	@posts = Post.paginate(page: params[:page], per_page: 5).order('created_at DESC')
+  	@posts = Post.approved.paginate(page: params[:page], per_page: 5).order('created_at DESC')
   	
 		if @posts.length == 0
 			respond_to do |format|
@@ -24,18 +24,39 @@ class PostsController < ApplicationController
 			}
 		})
 			respond_to do |format|
+				@posts = @posts.map{|post| post.current_user = current_user; post}
 			  format.html
 			  format.json{
-			  	render json: @posts.as_json(:include => [ :tweet => {:include => :twitter_profile}])
+			  	render json: @posts.as_json(:include => [ :tweet => {:include => :twitter_profile}], methods: [:upvote_count, :is_upvoted])
 			  }
 			end
 		end
   end
-  def create
-  	@post = Post.create(post_params)
+
+  def pending
+  	  	@posts = Post.pending.paginate(page: params[:page], per_page: 5).order('created_at DESC')
+  	  	
+  			if @posts.length == 0
+  				respond_to do |format|
+  				  format.html
+  				  format.json{
+  				  	render json: {error: 'There are no posts left.'}, status: 404
+  				  }
+  				end
+  			else
+  				respond_to do |format|
+  				  format.html
+  				  format.json{
+  				  	render json: @posts.as_json(:include => [ :tweet => {:include => :twitter_profile}])
+  				  }
+  				end
+  			end
   end
-  def new
-  	@post = Post.new
+
+  def approve
+  	@post = Post.find(params[:id])
+  	@post.approve!
+  	render json: @post
   end
   def show
  		@post = Post.friendly.find(params[:id])

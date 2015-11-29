@@ -19,3 +19,4 @@
 //= require Autolinker.js/dist/Autolinker.min
 //= require main
 //= require posts
+//= require pending_posts
