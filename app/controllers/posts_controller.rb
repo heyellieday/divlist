@@ -16,7 +16,7 @@ class PostsController < ApplicationController
 			end
 		else
 		set_meta_tags({
-  		:title => 'Hire and Retain Top LGBTQ Talent.',
+  		:title => 'Hire and retain top LGBTQ talent',
       :description => 'A crowdsourced collection of best practices to hire and retain top LGBTQ talent.',
       :og => {
 			  :title    => :title,
