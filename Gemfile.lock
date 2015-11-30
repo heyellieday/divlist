@@ -300,6 +300,8 @@ GEM
     pg (0.18.2)
     puma (2.13.4)
     rack (1.6.4)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.3)
@@ -385,6 +387,10 @@ GEM
       actionpack (~> 4.0)
       activemodel (~> 4.0)
     simple_oauth (0.3.1)
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
     spring (1.4.0)
     sprockets (3.4.0)
       rack (> 1, < 3)
@@ -476,6 +482,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   sidekiq
   simple_form
+  sinatra
   spring
   sqlite3
   turbolinks

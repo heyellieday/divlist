@@ -87,6 +87,7 @@ gem 'twitter'
 gem 'tweetstream'
 gem 'aasm'
 gem 'rolify'
+gem 'sinatra'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

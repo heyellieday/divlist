@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
 
   devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }, :skip => [:registrations] 
   as :user do
@@ -15,8 +16,10 @@ Rails.application.routes.draw do
   post 'upvotes/remove' => "upvotes#remove"
 
 
+
   scope '/dashboard', as: :dashboard do
     authenticate :user, lambda { |u| u.has_role? :moderator } do
+      mount Sidekiq::Web => 'sidekiq'
       get 'posts', to: 'posts#overview', as: :posts
       scope 'posts', as: :posts do
         get 'pending', to: "posts#pending", as: :pending
