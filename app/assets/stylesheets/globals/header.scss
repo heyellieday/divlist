@@ -151,7 +151,14 @@ header#header-main{
 				}
 				a.start-community{
 						font-style: italic;
-					}
+				}
+				@media (width: 768px){
+					margin-right: 0px;
+				}
+				@media (width: 1024px){
+					margin-right: 0px;
+				}
+
 			}
 		}
 	}

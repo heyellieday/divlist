@@ -4,6 +4,7 @@
 	<% if current_user.present? %>
 	<script type="text/javascript">
 	window.signedIn = true;
+	window.isiPad = navigator.userAgent.match(/iPad/i) != null;
 	</script>
 	<% end %>
   <%= display_meta_tags :site => 'DivList' %>
@@ -28,7 +29,13 @@
 <div class="container" id="main-content">
 	<%= yield %>
 </div>
-
+<script type="text/javascript">
+	$(document).ready(function(){
+		if (window.isiPad){
+			$("navbar-right hidden-xs").css("margin-right", "0px");
+		}
+	});
+</script>
 </body>
 </html>
 
