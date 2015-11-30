@@ -3,6 +3,7 @@
 
 # asset 'bootstrap'
 asset 'angular'
+asset 'angular-bootstrap'
 asset 'ngInfiniteScroll'
 asset 'moment'
 asset 'Autolinker.js'

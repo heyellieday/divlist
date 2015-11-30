@@ -1,6 +1,6 @@
 var autolinker = new Autolinker({hashtag: "twitter", newWindow: true});
 
-var app = angular.module('app', [ 'infinite-scroll']);
+var app = angular.module('app', [ 'infinite-scroll', 'ui.bootstrap']);
 
 app.run(['$rootScope', '$sce', function($rootScope, $sce){
   $rootScope.prettifyDate = function(date){
@@ -17,6 +17,8 @@ app.run(['$rootScope', '$sce', function($rootScope, $sce){
     var linkedText = autolinker.link(content);
     return $sce.trustAsHtml(linkedText);
   }
+
+  $rootScope.signedIn = window.signedIn;
 
 }]);
 

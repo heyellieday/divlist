@@ -13,11 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
+//= require angular-bootstrap
 //= require bootstrap
 //= require ngInfiniteScroll
 //= require medium-editor
 //= require moment
 //= require Autolinker.js/dist/Autolinker.min
 //= require main
+//= require post_modal
 //= require posts
 //= require pending_posts

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 	rolify
 
 	has_one :twitter_profile
-	has_many :upvotes
+	has_many :upvotes, dependent: :destroy
 
 	# Include default devise modules. Others available are:
 	# :lockable, :timeoutable

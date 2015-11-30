@@ -11,3 +11,16 @@
 	  </div>
 	</div>
 </section>
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Sign in to vote</h3>
+    </div>
+    <div class="modal-body">
+    	You must be logged in to vote for {{post.tweet.twitter_profile.name}}'s post.
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary" href="<%= user_omniauth_authorize_path(provider: 'twitter') %>" ng-click="ok()">Sign in with Twitter</a>
+        <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
