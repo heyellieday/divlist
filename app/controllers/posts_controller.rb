@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 			  :title    => :title,
 			  :type     => 'website',
 			  :url      => root_url,
-			  #:image    => view_context.image_url("fb-background.png"),
+			  :image    => view_context.image_url("cover-divlist.jpg"),
 			  :description => :description
 			}
 		})
