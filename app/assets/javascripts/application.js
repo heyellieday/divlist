@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require angular/angular.min
+//= require angular
 //= require angular-bootstrap
 //= require bootstrap
 //= require ngInfiniteScroll
