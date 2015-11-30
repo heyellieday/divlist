@@ -4,13 +4,14 @@
 	<div class="navbar-content">
 	  <ul class="nav navbar-nav">
 	    <li>
-	      <a class="active" href="#">Popular this week</a>
+	    	<% is_sort = !current_page?(sort: "latest") %>
+	    	<%= nav_link_to("Popular this week",root_url, {}, is_sort) %>
 	    </li>
 	    <li>
-	      <a href="#">Latest</a>
+	    	<%= nav_link_to("Latest", root_url(sort: "latest")) %>
 	    </li>
 	  </ul>
-	  <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
+	  <ul class="nav navbar-nav navbar-right hidden-xs">
 	  	<li>
 	  		<a href="#" class="start-community">
 	  		Share a resource

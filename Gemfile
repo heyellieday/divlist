@@ -86,6 +86,7 @@ gem 'awesome_print'
 gem 'twitter'
 gem 'tweetstream'
 gem 'aasm'
+gem 'rolify'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

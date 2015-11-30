@@ -30,6 +30,7 @@ header#header-main{
 				.tagline{
 					font-style: italic;
 					font-size: 12px;
+					display: inline !important;
 				}
 			}
 		}
@@ -47,7 +48,7 @@ header#header-main{
 						color: $brand-main;
 					}
 				}
-				li .active{
+				li {
 					border-bottom: 3px $brand-main solid;
 					padding-bottom: 11px;
 				}
@@ -107,13 +108,15 @@ header#header-main{
 						background-color: $brand-light;
 					}
 				}
-				li .active{
-					border-bottom: 3px $brand-main solid;
-					padding-bottom: 11px;
+				li.active{
+					> a{
+						border-bottom: 3px $brand-main solid;
+						padding-bottom: 11px;
+					}
 				}
 			}
 			.navbar-right{
-				margin-right: 0px;
+				margin-right: -150px;
 				a{
 					text-transform: none;
 				}
@@ -125,6 +128,10 @@ header#header-main{
 	}
 	@media (max-width: 767px){
 		.navbar-page{
+			.navbar-container{
+				margin-bottom: -5px;
+    		overflow: hidden;
+			}
 			.navbar-header{
 				display: inline-block;
 	  		width: 10%
@@ -134,12 +141,14 @@ header#header-main{
 				width: 90%;
 				display: inline-block;
 				float: right;
+
 				.navbar-nav{
-					display: table;
+					display: inline-block;
+					margin-left: 0px;
+					margin-bottom: 0px;
 					li{
 
 						display: table-cell;
-	  				width: 1%;
 	  				text-align: right;
 					}
 				}

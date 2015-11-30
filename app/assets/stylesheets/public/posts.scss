@@ -22,7 +22,24 @@
     	height: 70px;
     	border: 1px solid $brand-light;
     	display:block;
-    margin:auto;
+        margin:auto;
+        @media (max-width: 767px){
+            margin-top: 10px;
+            width: 45px;
+            height: 45px;
+        }
+    }
+    .left{
+        @media (max-width: 767px){
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            
+            -webkit-flex-flow: column-reverse;
+            flex-flow: column-reverse;
+        }
     }
     .source-link{
     	position: absolute;
@@ -70,10 +87,14 @@
     				color:$brand-main;
     				font-weight: bold;
     				font-size: 18px;
+                    @media (max-width: 767px){
+                        padding-top: 5px;
+                    }
     			}
     			.upvotes:hover, .upvoted{
     				color: $brand-alternate;
     			}
+                
     		}
       }
 
@@ -114,5 +135,13 @@ body.posts{
 		border-right: 2px $brand-alternate solid;
 		margin-bottom: 15px;
 		border-radius: 5px;
+        @media (max-width: 767px){
+            @include aspect-ratio(3, 2);
+            max-height: 125px;
+        }
+        @media (max-width: 379px){
+            @include aspect-ratio(3, 2);
+            max-height: 150px;
+        }
 	}
 }

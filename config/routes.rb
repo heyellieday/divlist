@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 
   scope '/dashboard', as: :dashboard do
-    authenticate :user do
+    authenticate :user, lambda { |u| u.has_role? :moderator } do
       get 'posts', to: 'posts#overview', as: :posts
       scope 'posts', as: :posts do
         get 'pending', to: "posts#pending", as: :pending

@@ -10,8 +10,14 @@ module LayoutHelper
     ].uniq.join(' ')
   end
   
-  def nav_link_to(link_text, link_path, link_options = {})
-    css_class = current_page?(link_path) ? 'active' : ''
+  def nav_link_to(link_text, link_path, link_options = {}, second_current_page = true)
+    css_class = ''
+    if current_page?(link_path) && second_current_page
+      css_class = 'active'
+    else
+      css_class = ''
+    end
+    #css_class = current_page?(link_path) ? 'active' : ''
 
     content_tag(:li, class: css_class) do
       link_to link_text, link_path, link_options

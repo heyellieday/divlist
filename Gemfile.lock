@@ -343,6 +343,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    rolify (4.0.0)
     rspec-core (3.2.3)
       rspec-support (~> 3.2.0)
     rspec-expectations (3.2.1)
@@ -468,6 +469,7 @@ DEPENDENCIES
   rails_12factor
   redis
   rest-client
+  rolify
   rspec-rails
   sanitize (~> 4.0.0)
   sass-rails (~> 5.0)

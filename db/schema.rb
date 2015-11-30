@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129012035) do
+ActiveRecord::Schema.define(version: 20151130010330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,14 +36,26 @@ ActiveRecord::Schema.define(version: 20151129012035) do
     t.string   "belongable_type"
     t.integer  "ownable_id"
     t.string   "ownable_type"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "aasm_state"
+    t.integer  "upvote_count",    default: 0
   end
 
   add_index "posts", ["belongable_type", "belongable_id"], name: "index_posts_on_belongable_type_and_belongable_id", using: :btree
   add_index "posts", ["ownable_type", "ownable_id"], name: "index_posts_on_ownable_type_and_ownable_id", using: :btree
   add_index "posts", ["slug"], name: "index_posts_on_slug", using: :btree
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
+  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "tweets", force: :cascade do |t|
     t.text     "text"
@@ -119,6 +131,13 @@ ActiveRecord::Schema.define(version: 20151129012035) do
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
+
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
+
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
   add_foreign_key "identities", "users"
   add_foreign_key "tweets", "posts"

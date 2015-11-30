@@ -66,6 +66,7 @@ app.factory('PendingPosts',['$http', '$location', function($http, $location) {
     this.after = 1;
   };
 
+
   Posts.prototype.nextPage = function() {
     if (this.busy) return;
     this.busy = true;
@@ -91,12 +92,29 @@ app.factory('Posts',['$http', '$location', function($http, $location) {
     this.after = 1;
   };
 
+  var getUrlVars = function()
+  {
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++)
+      {
+          hash = hashes[i].split('=');
+          vars.push(hash[0]);
+          vars[hash[0]] = hash[1];
+      }
+      return vars;
+  }
+
   Posts.prototype.nextPage = function() {
     if (this.busy) return;
     this.busy = true;
     var url = "";
 
     url = '/?format=json&page='+this.after;
+    queryParams = getUrlVars();
+    for(i in queryParams){
+        url += "&"+i+"="+queryParams[i];
+    };
     $http.get(url).success(function(data) {
       var posts = data;
       for (var i = 0; i < posts.length; i++) {

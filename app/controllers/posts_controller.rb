@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
   def index
-
-  	@posts = Post.approved.paginate(page: params[:page], per_page: 5).order('created_at DESC')
+  	if params[:sort].present? && params[:sort] == "latest"
+  		@posts = Post.approved.paginate(page: params[:page], per_page: 5).order("created_at DESC")
+  	else
+  		@posts = Post.approved.where("upvote_count > 0").where('created_at >= ?', 1.week.ago).paginate(page: params[:page], per_page: 5).order("upvote_count DESC")
+  	end
   	
 		if @posts.length == 0
 			respond_to do |format|
@@ -13,8 +16,8 @@ class PostsController < ApplicationController
 			end
 		else
 		set_meta_tags({
-  		:title => 'Bringing together impactful communities.',
-      :description => 'Karmafuse is a collection of socially-forward communities where members can share and discuss relevant topics.',
+  		:title => 'A crowdsourced collection of best practices to hire and retain top LGBTQ talent.',
+      :description => 'A crowdsourced collection of best practices to hire and retain top LGBTQ talent.',
       :og => {
 			  :title    => :title,
 			  :type     => 'website',

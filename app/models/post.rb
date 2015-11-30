@@ -24,12 +24,12 @@ class Post < ActiveRecord::Base
 	scope :approved, -> { where(:aasm_state => "approved") }
 	scope :pending, -> { where(:aasm_state => "pending") }
 
-	def upvote_count
-		upvotes.count
-	end
-
 	def is_upvoted
-		user ||= current_user
-		user.upvotes.find_by(post_id: id).present?
+		if current_user.present?
+			user ||= current_user
+			user.upvotes.find_by(post_id: id).present?
+		else
+			false
+		end
 	end
 end

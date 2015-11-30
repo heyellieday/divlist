@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-	TEMP_EMAIL_PREFIX = 'change@me'
+  TEMP_EMAIL_PREFIX = 'change@me'
 	TEMP_EMAIL_REGEX = /\Achange@me/
+
+	rolify
 
 	has_one :twitter_profile
 	has_many :upvotes
