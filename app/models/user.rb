@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
 	has_one :twitter_profile
 	has_many :upvotes, dependent: :destroy
+	has_many :identities, dependent: :destroy
 
 	# Include default devise modules. Others available are:
 	# :lockable, :timeoutable
