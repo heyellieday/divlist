@@ -1,4 +1,4 @@
-app.controller('PostModalInstanceCtrl', function ($scope, $uibModalInstance, post) {
+app.controller('PostModalInstanceCtrl',['$scope', '$uibModalInstance', 'post', function ($scope, $uibModalInstance, post) {
 
   $scope.post = post
 
@@ -9,4 +9,4 @@ app.controller('PostModalInstanceCtrl', function ($scope, $uibModalInstance, pos
   $scope.cancel = function () {
     $uibModalInstance.dismiss('cancel');
   };
-});
+}]);
