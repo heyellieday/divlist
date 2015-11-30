@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
+//= require bootstrap
 //= require ngInfiniteScroll
 //= require medium-editor
 //= require moment

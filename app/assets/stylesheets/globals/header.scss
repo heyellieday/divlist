@@ -8,11 +8,35 @@ header#header-main{
   		   -webkit-box-shadow: 0px 0px 10px $brand-light;
      -moz-box-shadow: 0px 0px 10px $brand-light;
           box-shadow: 0px 0px 10px $brand-light;
+
+   .navbar-toggle .icon-bar {
+       background: white;
+   }
 	.navbar-main{
 		border: 0px $brand-alternate solid;
 		height: 65px;
 		margin-bottom: 0px;
 		border-bottom: 1px $brand-alternate solid;
+
+		@media (max-width: 767px){
+		   .navbar-collapse {
+		   	li {
+		   	    border-bottom: 1px #de0456 solid !important;
+		   	    padding-bottom: 11px;
+		   	}
+		   	margin-top: 40px;
+		   	z-index: 120;
+		       overflow-y: auto;
+		       background: -moz-linear-gradient(0deg, rgba(222,4,86,1) 0%, rgba(123,0,128,1) 100%); /* ff3.6+ */
+		       background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(222,4,86,1)), color-stop(100%, rgba(123,0,128,1))); /* safari4+,chrome */
+		       background: -webkit-linear-gradient(0deg, rgba(222,4,86,1) 0%, rgba(123,0,128,1) 100%); /* safari5.1+,chrome10+ */
+		       background: -o-linear-gradient(0deg, rgba(222,4,86,1) 0%, rgba(123,0,128,1) 100%); /* opera 11.10+ */
+		       background: -ms-linear-gradient(0deg, rgba(222,4,86,1) 0%, rgba(123,0,128,1) 100%); /* ie10+ */
+		       background: linear-gradient(90deg, rgba(222,4,86,1) 0%, rgba(123,0,128,1) 100%); /* w3c */
+		       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#de0456', endColorstr='#7B0080',GradientType=1 ); /* ie6-9 */
+		   }
+		}
+
 
 		.navbar-container{
 		}
@@ -30,7 +54,9 @@ header#header-main{
 				.tagline{
 					font-style: italic;
 					font-size: 12px;
-					display: inline !important;
+					@media (max-width: 767px){
+					    display: none !important;
+					}
 				}
 			}
 		}
@@ -42,6 +68,9 @@ header#header-main{
 					> a{
 					  padding-top: 22px;
 					  padding-bottom: 23px;
+					  @media (max-width: 767px){
+					    color: white;
+					}
 					}
 					> a:hover{
 						background-color: white;
